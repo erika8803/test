@@ -1,0 +1,73 @@
+@import "variables";
+@mixin desktop {
+    @media(min-width: 1000px) {
+        @content;
+    }
+}
+main {
+    $width: 100% !global;
+}
+body {   
+    min-width: 500px + 200px;
+    text-align: center;
+    font-family: "Hiragino Kaku Gothic ProN";
+    background-color: #f0f5fc;
+}
+
+.info {
+    .title {
+        width: $width;
+        padding: 10px 0;
+        display: inline-block;
+        background-color: #7579a3;
+        color: #ffffff;
+        text-align: center;
+    }
+    .small {
+        font-size: 12px;
+    }
+    @include desktop {
+        color: red;
+    }
+
+}
+
+button {
+    display: inline-block;
+    padding: 8px 24px;
+    color: white;
+    opacity: 0.8;
+    border-radius: 4px;
+    background-color: #f778b8;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+@mixin display-color($bk-color) {
+	padding: 56px 0;
+	margin: 0 auto 32px;
+	background-color: $bk-color;
+}    
+
+.yahoo {
+    @include display-color($bk-white);
+}
+.google {
+    @include display-color($bk-blue);
+}
+.youtube {
+	padding: 56px 0;
+	margin: 0 auto 32px;
+	background-color: darken($bk-white, 8%);
+}
+.twitter {
+    @include display-color($bk-pink);
+}
+.instagram {
+	padding: 56px 0;
+	margin: 0 auto 32px;
+	background-color: mix($bk-white,$bk-pink, 60%);
+}
